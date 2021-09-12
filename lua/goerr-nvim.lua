@@ -3,19 +3,29 @@ local v = vim.v
 local fn = vim.fn
 local buf, win
 
-local function GoErrFoldTxt(bufnr, foldstart, foldend, folddashes)
-    local lines = fn.getbufline(bufnr, foldstart)
+function _G.GoErrFoldTxt(bufnr)
+    local lines = fn.getbufline(bufnr, v.foldstart, v.foldend-1)
 
     if string.find(lines[1], "^%s*if err != nil {") == nil then
         return vim.api.nvim_eval('foldtext()')
     end
 
     local result = ""
-    for _, l in ipairs(lines) do
-        l = string.gsub(l, "^%s*", "")
-        result = result .. l
+    for i, l in ipairs(lines) do
+        if i ~= 1 then
+            if i ~= 2 then result = result .. "; " end
+            l = string.gsub(l, "^%s*", "")
+            l = string.gsub(l, "return", "")
+            if #l > 27 then l = string.sub(l, 0, 27) .. '...' end
+            
+            result = result .. l
+        end
     end
-    return "if err: "..result
+    result = "if err: " .. result
+    for i = 0, v.foldlevel do
+        result = "\t"..result
+    end
+    return ' ' .. result
 
 end
 
