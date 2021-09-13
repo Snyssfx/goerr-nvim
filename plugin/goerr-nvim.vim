@@ -20,6 +20,7 @@
 
 set foldtext=MyFoldText()
 function MyFoldText()
+    call luaeval('call requrie("goerr-nvim")')
     return luaeval('_G.GoErrFoldTxt(vim.api.nvim_get_current_buf())')
 endfunction
 
