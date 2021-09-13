@@ -1,3 +1,4 @@
+// vim:foldlevel=1 foldnestmax=2 foldmethod=syntax
 package main
 
 import (
@@ -12,7 +13,7 @@ func main() {
 		fmt.Print(err)
 	}
 
-	err := lol()
+	err = lol()
 	if err != nil {
 		fmt.Print("1")
 		fmt.Print(err)
@@ -33,5 +34,6 @@ func lol() error {
 	if err != nil {
 		return errors.New("lol")
 	}
+
 	return nil
 }
