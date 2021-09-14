@@ -13,12 +13,12 @@
 augroup goerr_nvim_go_ft
 autocmd!
 autocmd FileType go silent! execute 'g/if err != nil/silent execute("normal zcgg")'
-autocmd FileType go setlocal foldtext=<SID>MyFoldText()
+autocmd FileType go setlocal foldtext=g:MyFoldText()
 " also remove distracting dots in fold names (replace to spaces)
 autocmd FileType go setlocal fillchars=fold:\ 
 augroup END
 
-function s:MyFoldText()
+function g:MyFoldText()
     return luaeval('require("goerr-nvim").GoErrFoldTxt(vim.api.nvim_get_current_buf())')
 endfunction
 
