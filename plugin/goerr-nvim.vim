@@ -18,9 +18,8 @@ autocmd FileType go setlocal foldtext=g:MyFoldText()
 autocmd FileType go setlocal fillchars=fold:\ 
 augroup END
 
-luaeval('require("goerr-nvim")')
-
 function! g:MyFoldText()
+    luaeval('require("goerr-nvim")')
     return luaeval('_G.GoErrFoldTxt(vim.api.nvim_get_current_buf())')
 endfunction
 
