@@ -19,13 +19,15 @@ function _G.GoErrFoldTxt(bufnr)
         if i ~= 1 then
             if i ~= 2 then result = result .. "; " end
             l = string.gsub(l, "^%s*", "")
-            l = string.gsub(l, "return", "")
-            if #l > 27 then l = string.sub(l, 0, 27) .. '...' end
+            l = string.gsub(l, "return ", "")
+            l = string.gsub(l, "errors%.", "ε")
+            l = string.gsub(l, "fmt%.", "ϕ")
             
+            if #l > 27 then l = string.sub(l, 0, 27) .. '...' end
             result = result .. l
         end
     end
-    result = "if err: " .. result
+    result = "ifer: " .. result
     for i = 1, v.foldlevel-1, 1 do
         for j = 1, vim.o.softtabstop, 1 do
             result = " "..result

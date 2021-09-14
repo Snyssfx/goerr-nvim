@@ -43,6 +43,10 @@ func lol() error {
 			if err != nil {
 				return errors.New("test tabs")
 			}
+
+			if err != nil {
+				return fmt.Errorf("abc", err)
+			}
 		}
 	}
 	return nil
