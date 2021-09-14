@@ -4,6 +4,8 @@ package main
 import (
 	"errors"
 	"fmt"
+
+	"google.golang.org/appengine/log"
 )
 
 func main() {
@@ -46,6 +48,10 @@ func lol() error {
 
 			if err != nil {
 				return fmt.Errorf("abc", err)
+			}
+
+			if err != nil {
+				return log.Errorf("abc", err)
 			}
 		}
 	}

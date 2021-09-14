@@ -1,11 +1,8 @@
-local api = vim.api
 local v = vim.v
 local fn = vim.fn
-local buf, win
 
 local goerr = {}
 
--- function goerr.GoErrFoldTxt(bufnr)
 function _G.GoErrFoldTxt(bufnr)
     local lines = fn.getbufline(bufnr, v.foldstart, v.foldend-1)
 
@@ -13,7 +10,6 @@ function _G.GoErrFoldTxt(bufnr)
         return vim.api.nvim_eval('foldtext()')
     end
 
-    -- local result = string.gsub(lines[1], "if err != nil {", "if err: ") 
     local result = ""
     for i, l in ipairs(lines) do
         if i ~= 1 then
@@ -22,11 +18,14 @@ function _G.GoErrFoldTxt(bufnr)
             l = string.gsub(l, "return ", "")
             l = string.gsub(l, "errors%.", "ε")
             l = string.gsub(l, "fmt%.", "ϕ")
-            
+            l = string.gsub(l, "log%.", "λ")
+            l = string.gsub(l, "logger%.", "λ")
+  
             if #l > 27 then l = string.sub(l, 0, 27) .. '...' end
             result = result .. l
         end
     end
+
     result = "ifer: " .. result
     for i = 1, v.foldlevel-1, 1 do
         for j = 1, vim.o.softtabstop, 1 do
