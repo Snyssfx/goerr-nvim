@@ -23,7 +23,7 @@ function goerr.GoErrFoldTxt(bufnr)
             result = result .. l
         end
     end
-    result = "if err: " .. result
+    result = string.gsub(lines[0], "^(%s*)if err != nil", "%1if err: ") .. result
     for i = 0, v.foldlevel do
         result = "\t"..result
     end

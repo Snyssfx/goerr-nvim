@@ -1,4 +1,4 @@
-// vim:foldlevel=1 foldnestmax=2 foldlevelstart=1
+// vim:foldlevel=1 foldnestmax=8 foldlevelstart=1
 package main
 
 import (
@@ -35,5 +35,15 @@ func lol() error {
 		return errors.New("lol")
 	}
 
+	v := false
+	if v {
+		switch v {
+		case true:
+			err = nil
+			if err != nil {
+				return errors.New("test tabs")
+			}
+		}
+	}
 	return nil
 }
