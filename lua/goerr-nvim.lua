@@ -3,7 +3,9 @@ local v = vim.v
 local fn = vim.fn
 local buf, win
 
-function _G.GoErrFoldTxt(bufnr)
+local goerr = {}
+
+function goerr.GoErrFoldTxt(bufnr)
     local lines = fn.getbufline(bufnr, v.foldstart, v.foldend-1)
 
     if string.find(lines[1], "^%s*if err != nil {") == nil then
@@ -26,8 +28,6 @@ function _G.GoErrFoldTxt(bufnr)
         result = "\t"..result
     end
     return ' ' .. result
-
 end
 
--- print(GoErrFoldTxt(10, 7, 9, "..."))
--- print(GoErrFoldTxt(10, 11, 14, "..."))
+return goerr

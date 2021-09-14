@@ -8,20 +8,18 @@
 
 " let &cpo = s:save_cpo " and restore after
 
-" function g:Goerrfoldtxt()
-"     return '53'
-"     " return lua GoErrFoldTxt(vim.api.nvim_get_current_buffer(), vim.v.foldstart, vim.v.foldend)
-" endfunction
-" set foldtext=g:Goerrfoldtxt()
-
 " unlet s:save_cpo
 
-" let g:loaded_goerr_nvim = 1
+augroup goerr_nvim_go_ft
+autocmd!
+autocmd FileType go silent! execute 'g/if err != nil/silent execute("normal zcgg")'
+autocmd FileType go setlocal foldtext=<SID>MyFoldText()
+" also remove distracting dots in fold names (replace to spaces)
+autocmd FileType go setlocal fillchars=fold:\ 
+augroup END
 
-call luaeval('require("goerr-nvim")')
-
-set foldtext=MyFoldText()
-function MyFoldText()
-    return luaeval('_G.GoErrFoldTxt(vim.api.nvim_get_current_buf())')
+function s:MyFoldText()
+    return luaeval('require("goerr-nvim").GoErrFoldTxt(vim.api.nvim_get_current_buf())')
 endfunction
 
+" let g:loaded_goerr_nvim = 1

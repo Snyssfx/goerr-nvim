@@ -1,4 +1,4 @@
-// vim:foldlevel=1 foldnestmax=2 foldmethod=syntax
+// vim:foldlevel=1 foldnestmax=2 foldlevelstart=1
 package main
 
 import (
@@ -24,7 +24,7 @@ func main() {
 	}
 
 	for {
-		a, b = 10, 20
+		a, b := 10, 20
 		a, b = b, a
 	}
 }
