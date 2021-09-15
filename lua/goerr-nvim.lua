@@ -20,7 +20,12 @@ function _G.GoErrFoldTxt(bufnr)
             l = string.gsub(l, "fmt%.", "ϕ")
             l = string.gsub(l, "log%.", "λ")
             l = string.gsub(l, "logger%.", "λ")
-  
+            l = string.gsub(l, "can't ", "ᶜ")
+            l = string.gsub(l, "cannot ", "ᶜ")
+            l = string.gsub(l, "couldn't ", "ᶜ")
+            l = string.gsub(l, "can not ", "ᶜ")
+            l = string.gsub(l, '"', '')
+
             if #l > 27 then l = string.sub(l, 0, 27) .. '...' end
             result = result .. l
         end

@@ -25,6 +25,10 @@ func main() {
 		fmt.Printf("%s", "long long long long long string")
 	}
 
+	if err != nil {
+		fmt.Printf("can't test word")
+	}
+
 	for {
 		a, b := 10, 20
 		a, b = b, a
