@@ -4,9 +4,13 @@ The plugin folds Go's `if err != nil` and shows other lines like in Goland, it g
 The plugin converts popular words that is used in handling errors to just Greek letters.  
 Also it folds errors on buffer enter, and remove dots in folding.  
 
-Before | After
-- | - 
-![before](./pictures/before.png) | ![after](./pictures/after.png)
+__Before:__
+
+<img src="./pictures/before.png" width="600" height="700" alt="before">
+
+__After:__
+
+<img src="./pictures/after.png" width="500" height="600" alt="after">
 
 ## Features
 - Auto close `if err != nil` blocks of code, show inner lines;
