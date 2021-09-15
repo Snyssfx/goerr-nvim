@@ -12,13 +12,13 @@ func main() {
 	var err error
 
 	if err != nil {
-		fmt.Print(err)
+		fmt.Printf("just err: %s", err.Error())
 	}
 
-	err = lol()
+	err = fn()
 	if err != nil {
-		fmt.Print("1")
-		fmt.Print(err)
+		fmt.Print("test")
+		fmt.Print("multiline err")
 	}
 
 	if err != nil {
@@ -26,7 +26,7 @@ func main() {
 	}
 
 	if err != nil {
-		fmt.Printf("can't test word")
+		fmt.Printf("can't converts to `c'`")
 	}
 
 	for {
@@ -35,10 +35,10 @@ func main() {
 	}
 }
 
-func lol() error {
+func fn() error {
 	var err error
 	if err != nil {
-		return errors.New("lol")
+		return errors.New("err*rs package converts to epsilon")
 	}
 
 	v := false
@@ -47,15 +47,15 @@ func lol() error {
 		case true:
 			err = nil
 			if err != nil {
-				return errors.New("test tabs")
+				return errors.New("correct indentation")
 			}
 
 			if err != nil {
-				return fmt.Errorf("abc", err)
+				return fmt.Errorf("f*t convetrs to phi", err)
 			}
 
 			if err != nil {
-				return log.Errorf("abc", err)
+				return log.Errorf("l*g converts to lambda", err)
 			}
 		}
 	}
