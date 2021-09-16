@@ -14,19 +14,7 @@ function _G.GoErrFoldTxt(bufnr)
     for i, l in ipairs(lines) do
         if i ~= 1 then
             if i ~= 2 then result = result .. "; " end
-            l = string.gsub(l, "^%s*", "")
-            l = string.gsub(l, "return ", "")
-            l = string.gsub(l, "errors%.", "ε")
-            l = string.gsub(l, "fmt%.", "ϕ")
-            l = string.gsub(l, "log%.", "λ")
-            l = string.gsub(l, "logger%.", "λ")
-            l = string.gsub(l, "can't ", "c'")
-            l = string.gsub(l, "cannot ", "c'")
-            l = string.gsub(l, "couldn't ", "c'")
-            l = string.gsub(l, "can not ", "c'")
-            l = string.gsub(l, '"', '')
-
-            if #l > 27 then l = string.sub(l, 0, 27) .. '...' end
+            l = goerr.GoErrSubstLine(l)
             result = result .. l
         end
     end
@@ -38,6 +26,24 @@ function _G.GoErrFoldTxt(bufnr)
         end
     end
     return result
+end
+
+function goerr.GoErrSubstLine(l)
+    l = string.gsub(l, "^%s*", "")
+    l = string.gsub(l, "return ", "↵")
+    l = string.gsub(l, "errors%.", "ε")
+    l = string.gsub(l, "fmt%.", "ϕ")
+    l = string.gsub(l, "log%.", "λ")
+    l = string.gsub(l, "logger%.", "λ")
+    l = string.gsub(l, "can't ", "c'")
+    l = string.gsub(l, "cannot ", "c'")
+    l = string.gsub(l, "couldn't ", "c'")
+    l = string.gsub(l, "can not ", "c'")
+    l = string.gsub(l, '"', '')
+
+    if #l > 27 then l = string.sub(l, 0, 27) .. '...' end
+
+    return l
 end
 
 return goerr
