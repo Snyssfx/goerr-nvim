@@ -30,7 +30,7 @@ end
 
 function goerr.GoErrSubstLine(l)
     l = string.gsub(l, "^%s*", "")
-    l = string.gsub(l, "return\s*", "↵")
+    l = string.gsub(l, "return%s*", "↵")
     l = string.gsub(l, "errors%.", "ε")
     l = string.gsub(l, "fmt%.", "ϕ")
     l = string.gsub(l, "log%.", "λ")
