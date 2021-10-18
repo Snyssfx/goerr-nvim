@@ -33,6 +33,14 @@ func main() {
 		a, b := 10, 20
 		a, b = b, a
 	}
+
+	if err != nil && a == 10 {
+		log.Errorf("don't fold it")
+	}
+
+	if err != nil {
+		log.Errorf("", "test empty strings")
+	}
 }
 
 func fn() error {
